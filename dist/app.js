@@ -16,9 +16,15 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const cors_1 = __importDefault(require("cors"));
 const config_1 = __importDefault(require("./app/config/config"));
+const product_route_1 = require("./app/module/products/product.route");
+const globalErrorHandle_1 = require("./app/middleware/globalErrorHandle");
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)({ origin: 'localhost://5000', credentials: true }));
+app.use((0, cors_1.default)({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express_1.default.json());
+//route
+app.use('/api/product', product_route_1.productsRoute);
+//error handler
+app.use(globalErrorHandle_1.globalError);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         yield mongoose_1.default.connect(config_1.default.databaseUrl);
