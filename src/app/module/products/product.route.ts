@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { productController } from "./product.controller";
+import { getProductController, productController } from "./product.controller";
 
 
 export const productsRoute = Router()
@@ -7,3 +7,4 @@ export const productsRoute = Router()
 
 productsRoute.post('/upload',productController)
 
+productsRoute.get('/get-product',getProductController)

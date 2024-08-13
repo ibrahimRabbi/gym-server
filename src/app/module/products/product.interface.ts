@@ -3,5 +3,6 @@ export type Tproduct = {
     description: string,
     price: number,
     image: string,
+    rating?:number
     isdeleted?: boolean
 }
