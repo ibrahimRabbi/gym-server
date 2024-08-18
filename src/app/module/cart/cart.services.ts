@@ -3,6 +3,7 @@ import { cartModel } from "./cart.model";
 
 
 export const addcartService = async (data: Tcart) => {
+    
     try {
         const findDataExistancy = await cartModel.findOne({ id: data.id })
 

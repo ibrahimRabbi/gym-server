@@ -19,12 +19,14 @@ const config_1 = __importDefault(require("./app/config/config"));
 const product_route_1 = require("./app/module/products/product.route");
 const globalErrorHandle_1 = require("./app/middleware/globalErrorHandle");
 const cart_route_1 = require("./app/module/cart/cart.route");
+const user_route_1 = require("./app/module/users/user.route");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express_1.default.json());
 //route
 app.use('/api/product', product_route_1.productsRoute);
 app.use('/api/cart', cart_route_1.cartRoute);
+app.use('/api/user', user_route_1.userRoute);
 //error handler
 app.use(globalErrorHandle_1.globalError);
 function main() {
