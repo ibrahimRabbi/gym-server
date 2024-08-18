@@ -4,6 +4,7 @@ import cors from 'cors'
 import envData from './app/config/config';
 import { productsRoute } from './app/module/products/product.route';
 import { globalError } from './app/middleware/globalErrorHandle';
+import { cartRoute } from './app/module/cart/cart.route';
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use(express.json())
 
 //route
 app.use('/api/product', productsRoute)
+app.use('/api/cart',cartRoute)
 
 
 //error handler

@@ -6,7 +6,9 @@ const productSchema = new Schema<Tproduct>({
     description: { type: String, required: true, trim: true, default: 'hello world' },
     price: { type: Number, required: true, trim: true },
     image: { type: String, required: true, trim: true, unique: true },
-    rating: { type: Number, max: 5, default: 2 },
+    category: { type: String, required: true, trim: true, enum: ['bike', 'cable-machine', 'dumbbell', 'treadmill'] },
+    stock: { type: Number, required: true, trim: true, min:10 },
+    rating: { type: Number, max: 5, default: 3 },
     isdeleted: { type: Boolean, default: false }
 },
     { timestamps: true }
