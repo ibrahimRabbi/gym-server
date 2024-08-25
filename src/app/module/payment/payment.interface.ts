@@ -1,4 +1,9 @@
+import { Types } from "mongoose"
+
 export type Tpayment = {
-    price: number,
-    currency : string
+    user: Types.ObjectId,
+    email: string
+    amount: number,
+    products?: Array<object>,
+   
 }

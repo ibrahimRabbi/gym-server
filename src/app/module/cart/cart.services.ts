@@ -20,7 +20,7 @@ export const addcartService = async (data: Tcart) => {
 }
 
 
-export const getCartDataService = async () => {
-    const data = await cartModel.find().populate('productId')
+export const getCartDataService = async (email: string) => {
+    const data = await cartModel.find({ userEmail :email}).populate('productId')
     return data
 }

@@ -16,7 +16,7 @@ export const addCartController = async (req: Request, res: Response, next: NextF
 
 export const getCartdataController = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const data = await getCartDataService()
+        const data = await getCartDataService(req.query.email as string)
         res.status(200).json({ status: true, data })
     } catch (err: any) {
         next(err)

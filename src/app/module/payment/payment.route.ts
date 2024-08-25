@@ -6,4 +6,4 @@ export const paymentRoute = Router()
 
 paymentRoute.post("/payment", paymentController)
 
-paymentRoute.post(`payment/success/:id`,paymentSuccessController)
+paymentRoute.post(`/payment/success/:id`,paymentSuccessController)
