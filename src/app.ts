@@ -6,6 +6,7 @@ import { productsRoute } from './app/module/products/product.route';
 import { globalError } from './app/middleware/globalErrorHandle';
 import { cartRoute } from './app/module/cart/cart.route';
 import { userRoute } from './app/module/users/user.route';
+import { paymentRoute } from './app/module/payment/payment.route';
 
 const app = express()
 
@@ -17,7 +18,8 @@ app.use(express.json())
 //route
 app.use('/api/product', productsRoute)
 app.use('/api/cart', cartRoute)
-app.use('/api/user',userRoute)
+app.use('/api/user', userRoute)
+app.use('/api',paymentRoute)
 
 
 //error handler

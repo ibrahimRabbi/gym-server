@@ -5,7 +5,7 @@ import { cartModel } from "./cart.model";
 export const addcartService = async (data: Tcart) => {
     
     try {
-        const findDataExistancy = await cartModel.findOne({ id: data.id })
+        const findDataExistancy = await cartModel.findOne({ productId : data.productId })
 
         if (findDataExistancy) {
             throw new Error('this item already added')
@@ -21,6 +21,6 @@ export const addcartService = async (data: Tcart) => {
 
 
 export const getCartDataService = async () => {
-    const data = await cartModel.find().populate('id')
+    const data = await cartModel.find().populate('productId')
     return data
 }

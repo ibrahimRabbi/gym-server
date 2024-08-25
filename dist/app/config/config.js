@@ -9,6 +9,8 @@ dotenv_1.default.config({ path: path_1.default.join(process.cwd(), '.env') });
 const envData = {
     databaseUrl: process.env.DATABASE_URL,
     port: process.env.PORT,
-    secretKey: process.env.SECRET_KEY
+    secretKey: process.env.SECRET_KEY,
+    storeId: process.env.STORE_ID,
+    storePassword: process.env.STORE_PASSWORD
 };
 exports.default = envData;
