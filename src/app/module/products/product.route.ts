@@ -1,12 +1,14 @@
 import { Router } from "express";
-import { getProductController, getSingleProductController, productController } from "./product.controller";
+import { deleteProductController, getProductController, getSingleProductController, productController } from "./product.controller";
 
 
 export const productsRoute = Router()
 
 
-productsRoute.post('/upload',productController)
+productsRoute.post('/addproduct',productController)
 
 productsRoute.get('/get-product', getProductController)
 
-productsRoute.get('/single-product/:id' , getSingleProductController)
+productsRoute.get('/single-product/:id', getSingleProductController)
+
+productsRoute.delete('/delete-product/:id', deleteProductController)

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { getProductServices, getSingleProductServices, productPostServices } from "./product.services";
+import { productModel } from "./product.model";
 
 
 
@@ -29,6 +30,19 @@ export const getSingleProductController = async (req: Request, res: Response, ne
     try {
         const response = await getSingleProductServices(req.params.id as string)
         res.status(200).json({ status: true, data: response })
+    } catch (err: any) {
+        next(err)
+    }
+}
+
+
+
+
+export const deleteProductController = async (req: Request, res: Response, next: NextFunction) => {
+ 
+    try {
+        const deleted = await productModel.findByIdAndDelete(req.params.id)
+        res.status(200).json({ status: true, data: deleted })
     } catch (err: any) {
         next(err)
     }
