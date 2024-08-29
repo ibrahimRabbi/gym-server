@@ -23,6 +23,16 @@ export const getProductServices = async (query: Record<string, unknown>) => {
                 limit = query.limit as number
         }
 
+        if (query?.search !== 'undefined') {
+                findQuery = {
+                        $or: [
+                                { title: { $regex: query.search, $options: 'i' } },
+                                {category:{$regex:query.search, $options:'i'}}
+
+                        ]
+                }
+        }
+
 
         const inserting = await productModel.find(findQuery).limit(limit)
         return inserting
@@ -31,7 +41,7 @@ export const getProductServices = async (query: Record<string, unknown>) => {
 
 
 
-export const getSingleProductServices = async (id:string) => {
+export const getSingleProductServices = async (id: string) => {
         const inserting = await productModel.findById(id)
         return inserting
 }

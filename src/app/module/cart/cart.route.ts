@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { addCartController, getCartdataController } from "./cart.controller";
+import { addCartController, deleteCartController, getCartdataController } from "./cart.controller";
 
 export const cartRoute = Router()
 
 cartRoute.post('/addcart', addCartController)
-cartRoute.get('/getcart',getCartdataController)
+cartRoute.get('/getcart', getCartdataController)
+cartRoute.delete('/delete-cart/:id',deleteCartController)

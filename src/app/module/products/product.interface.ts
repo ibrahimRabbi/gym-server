@@ -4,7 +4,7 @@ export type Tproduct = {
     price: number,
     image: string,
     rating?: number
-    category: 'bike' | 'cable-machine' | 'dumbbell' | 'treadmill',
+    category: 'bike' | 'cable-machine' | 'dumbbell' | 'treadmill' | 'bench' |'barbell',
     stock:number
     isdeleted?: boolean
 }
